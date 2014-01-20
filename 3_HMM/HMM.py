@@ -20,6 +20,9 @@ def HMM(px0, theta, phi, y, T):
         else:
             # prediction only
             px = prediction(theta, px)
+        print "After step: %d" % (t+1)
+        print px
+        print '\n'
     return px
 
 def main():
@@ -35,11 +38,12 @@ def main():
                     [0.3, 0.0, 0.3, 0.3, 0.1]])
 
     # Observations
-    y = np.array([0, 3, 4])
-    T = 3
+    y = np.array([3, 3, 0, 4, 2])
+    T = 8
 
     # distribution after Y observations
     px = HMM(px0, theta, phi, y, T)
+    print "Final:"
     print(px)
 
 main()
